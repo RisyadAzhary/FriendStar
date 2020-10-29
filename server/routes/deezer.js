@@ -7,7 +7,8 @@ const router = express.Router()
 // router.use(authentication)
 
 //liat tweet si User
-router.get("/album", DeezerController.findAlbum)
-router.get("/artist", DeezerController.artist)
+router.get("/album/:id", DeezerController.findAlbum)
+router.get("/artist/:id", DeezerController.artist)
+router.get("/search?", DeezerController.search)
 
 module.exports = router
