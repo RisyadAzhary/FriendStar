@@ -1,7 +1,7 @@
 const express = require("express")
 const TweetController = require("../controllers/tweet")
-const { stateinCountries } = require("../controllers/weatherAPI")
-const weatherAPI = require("../controllers/weatherAPI")
+const weatherAPIController = require("../controllers/weatherAPI")
+const newsAPIController = require("../controllers/newsAPI") 
 // const authentication = require("../middlewares/authentication")
 // const authorization = require("../middlewares/authorization")
 const router = express.Router()
@@ -23,10 +23,15 @@ router.post("/", TweetController.create)
 
 
 // Weather APIs
-router.get('/country', weatherAPI.weatherCountry)
-router.get('/state', weatherAPI.stateinCountries)
-router.get('/cities', weatherAPI.citiesInState)
-router.get('/city', weatherAPI.cityData)
+router.get('/country', weatherAPIController.weatherCountry)
+router.get('/state', weatherAPIController.stateinCountries)
+router.get('/cities', weatherAPIController.citiesInState)
+router.get('/city', weatherAPIController.cityData)
+
+// News APIs
+router.get('/topnews', newsAPIController.topHeadlinesNews)
+router.get('/everynews', newsAPIController.everythingNews)
+router.get('/source', newsAPIController.sourceNews)
 
 module.exports = router
 
