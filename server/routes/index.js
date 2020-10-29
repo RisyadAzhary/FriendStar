@@ -1,22 +1,12 @@
 const express = require("express");
+const UserRouter  = require("./user")
+const TweetRouter = require("./tweet")
 const router = express.Router();
-const friendstarController = require("../controllers/todoController");
-const userController = require("../controllers/userController");
 
+//users
+router.use("/users", UserRouter)
 
-
-//create
-router.post("/friendstar", friendstarController.addPost);
-//read
-router.get("/friendstar", friendstarController.showPost);
-
-//update
-router.put("/friendstar/:id", friendstarController.update);
-
-//delete
-router.delete("/friendstar/:id", friendstarController.delete);
-//register & login
-router.post("/user/register", userController.register);
-router.post("/user/login", userController.login);
+//tweets
+router.use("/tweets", TweetRouter)
 
 module.exports = router;
