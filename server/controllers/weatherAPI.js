@@ -18,14 +18,16 @@ class WeatherController {
   }
 
   static stateinCountries(req, res) {
+    
     axios({
       url: 'https://api.airvisual.com/v2/states',
       method: 'GET',
       params: {
-        country: "USA",
+        country: `${req.query.country}`,
         key: `${process.env.TOKEN_IQAIR}`
       }
     })
+
     .then(({ data }) => {
       res.status(200).json(data)
     })
@@ -39,8 +41,8 @@ class WeatherController {
       url: 'https://api.airvisual.com/v2/cities',
       method: 'GET',
       params: {
-        state: "Jakarta",
-        country: 'Indonesia',
+        state: `${req.query.state}`,
+        country: `${req.query.country}`,
         key: `${process.env.TOKEN_IQAIR}`
       }
     })
@@ -57,9 +59,9 @@ class WeatherController {
       url: 'https://api.airvisual.com/v2/city',
       method: 'GET',
       params: {
-        city: "Jakarta",
-        state: "Jakarta",
-        country: 'Indonesia',
+        city: `${req.query.city}`,
+        state: `${req.query.state}`,
+        country: `${req.query.country}`,
         key: `${process.env.TOKEN_IQAIR}`
       }
     })
