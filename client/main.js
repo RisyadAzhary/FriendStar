@@ -1,12 +1,14 @@
 function beforeLogin(event) {
     $('#login-page').show();
+    $('#music-search').hide();
     $('#register-page').hide();
     $('#navbar-logout').hide();
     $('#home-page').hide();
     $('.jumbotron').hide();
     $('#go-to-register').on('click', function(event) {
         $('#login-page').hide();
-        $('#register-page').show();
+        $('#music-search').hide();
+        $('#register-page').hide();
         $('#navbar-logout').hide();
         $('#home-page').hide();
     })
@@ -45,19 +47,19 @@ function todoList(event) {
             access_token: localStorage.getItem('access_token')
         }
     })
-
+}
  
 
 function loginForm(event) {
     event.preventDefault();
-    const email = $('#email-login').val()
+    const username = $('#username-login').val()
     const password = $('#password-login').val()
 
     $.ajax({
         method: 'POST',
-        url: 'http://localhost:3000/login',
+        url: 'http://localhost:3000/users/login',
         data: {
-            email,
+            username,
             password
         }
     })
@@ -73,11 +75,41 @@ function loginForm(event) {
         afterLogin();
     })
     .fail((err) => {
+        console.log(err);
+    })
+}
 
-},
 
+function register(e) {
+    e.preventDefault()
+    const first_name = $("#first_name").val()
+    const last_name = $("#last_name").val()
+    const username = $("#username").val()
+    const email = $("#email").val()
+    const password = $("#password").val()
 
-
+    $.ajax({
+        method: "POST",
+        url: "http://localhost:3000/users/register",
+        data: {
+            first_name: first_name,
+            last_name: last_name,
+            username: username,
+            email: email,
+            password: password
+        }
+    })
+    .done((data) => {
+        $('#login-page').show();
+        $('#register-page').hide();
+        $('#navbar-logout').hide();
+        $('#home-page').hide();
+    })
+    .fail(err => {
+        console.log(err);
+    })
+   
+}
 
 
 function menuLogout(event) {
@@ -87,7 +119,7 @@ function menuLogout(event) {
     beforeLogin();
     signOut()
     localStorage.clear();
-},
+}
 
 
 $(document).ready(function() {
@@ -97,10 +129,10 @@ $(document).ready(function() {
     } else {
         beforeLogin();
     }
-    $('#add-form').submit(addForm)
-    $('#login-page').submit(loginForm);
-    $('#register-page').submit(registerForm);
-    $('#navbar-logout').click(menuLogout)
+    // $('#add-form').submit(addForm)
+    // $('#login-page').submit(loginForm);
+    // $('#register-page').submit(registerForm);
+    // $('#navbar-logout').click(menuLogout)
     
 
 })
