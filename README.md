@@ -1,6 +1,4 @@
 # FriendStar
-
-# FriendStar
 ------------
 **Register User**
 
