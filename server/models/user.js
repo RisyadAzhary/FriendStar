@@ -56,6 +56,10 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: {
           args: true,
           msg: 'Please input username'
+        },
+        notContains: {
+          args: ' ',
+          msg: "username can't contain space"
         }
       }
     },
