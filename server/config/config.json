@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "postgres",
-    "password": "postgres",
-    "database": "twitter_clone",
-    "host": "127.0.0.1",
+    "password": "Niffea.66",
+    "database": "twitter_clone1",
+    "host": "localhost",
     "dialect": "postgres"
   },
   "test": {
