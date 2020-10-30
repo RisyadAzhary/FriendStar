@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 class NewsController{
-  static topHeadlinesNews(req, res, ) {
+  static topHeadlinesNews(req, res) {
     axios({
       url: 'https://newsapi.org/v2/top-headlines',
       method: "GET",
@@ -18,7 +18,7 @@ class NewsController{
     })
   }
 
-  static everythingNews(req, res, ) {
+  static everythingNews(req, res) {
     axios({
       url: 'https://newsapi.org/v2/everything',
       method: "GET",
@@ -35,7 +35,7 @@ class NewsController{
     })
   }
 
-  static sourceNews(req, res, ) {
+  static sourceNews(req, res) {
     axios({
       url: 'https://newsapi.org/v2/sources',
       method: 'GET',
