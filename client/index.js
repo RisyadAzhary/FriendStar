@@ -1,5 +1,32 @@
-
 const SERVER = "http://localhost:3000"
+
+$(document).ready(function () {
+checkLogin()
+
+},
+
+
+function checkLogin() {
+    const token = localStorage.getItem("token");
+	console.log(token);
+
+	if (token) {
+		$("#content").show();
+		$("#music-search").show();
+
+	} else {
+		$("#music-search").show();
+		$("#content").hide();
+
+	}
+
+    
+},
+
+function logout() {
+    localStorage.clear();
+    checkLogin();
+},
 
 function searchForm(e) {
     e.preventDefault()
@@ -70,4 +97,3 @@ Your browser does not support the audio element.
 // 		login();
 // 	});
 // });
-
