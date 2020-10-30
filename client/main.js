@@ -131,17 +131,7 @@ Your browser does not support the audio element.
 		});
 }
 
-// 	$("#btn-logout").on("click", function () {
-// 		logout();
-// 	});
 
-// 	$("#btn-login").on("click", function () {
-// 		login();
-
-// $('#add-form').submit(addForm)
-// $('#login-page').submit(loginForm);
-// $('#register-page').submit(registerForm);
-// $('#navbar-logout').click(menuLogout)
 
 function loginForm(event) {
 	event.preventDefault();
